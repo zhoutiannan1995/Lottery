@@ -1,0 +1,21 @@
+{
+  "name": "lottery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "web3": "^1.0.0-beta.33"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

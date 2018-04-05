@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>CFund Platform</title>
+
+    <!-- Bootstrap -->
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="css/CryptoKitties.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div class="App">
+            <div class="Header-container">
+                <div class="Header">
+                    <div class="Header-group Header-group-home">
+                        <a class="Header-home" aria-current="false" href="/">
+                            <div class="Header-logoWrapper">
+                                <div class="Header-logo"></div>
+                            </div>
+                            <h1 class="Header-wordmark">众筹营销 CFund</h1>
+                        </a>
+                        <div class="Header-networkStatus">
+                            <div class="NetworkStatus NetworkStatus--1">
+                                <div class="TooltipNew">
+                                    <span class="TooltipNew-wrapper">
+                                        <span class="NetworkStatus-message">
+                                            <span class="NetworkStatus-badge"></span>
+                                            <span class="NetworkStatus-status">网络通畅</span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Header-group">
+                        <a class="Header-navigation-item" aria-current="false" href="my.html">我的</a>
+                        <a class="Header-navigation-item" aria-current="false" href="activity.html">活动</a>
+                        <a class="Header-navigation-item" aria-current="false" href="new.html">创建新活动（限管理员）</a>
+                    </div>
+                    <div class="Header-group">
+                        <div class="Header-secondaryNav-wide">
+                            <a class="Header-navigation-item" aria-current="false" href="/about">关于我们</a>
+                            <a class="Header-navigation-item" aria-current="false" href="/faq">常见问题</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <main class="Main">
+                <div class="BrowsePage">
+                    <!-- <div class="BrowseSearchBar">
+                        <div class="Container Container--lg">
+                            <div class="InputButtons InputButtons--searchSmall">
+                                <input type="text" class="InputButtons-input" placeholder="搜索" value="" maxlength="200" autocapitalize="off" autocorrect="off">
+                                <div class="InputButtons-buttons">
+                                    <button class="InputButtons-button InputButtons-button--primary">搜索</button>
+                                    <button class="InputButtons-button InputButtons-button--dismiss">
+                                        <img src="/icons/close.svg" alt="Clear">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="BrowseToolbar">
+                        <div class="KittiesToolbar">
+                            <div class="KittiesToolbar-filterAndSort">
+                                <div class="Container Container--lg">
+                                    <div class="KittiesToolbar-filterAndSort-container">
+                                        <div class="KittiesToolbar-filter">
+                                            <div class="RadioGroup">
+                                                <div class="RadioGroup-item RadioGroup-item--active">
+                                                    <span class="RadioGroup-item-radio"></span>全部</div>
+                                                <div class="RadioGroup-item">
+                                                    <span class="RadioGroup-item-radio"></span>进行中</div>
+                                                <div class="RadioGroup-item">
+                                                    <span class="RadioGroup-item-radio"></span>未激活</div>
+                                                <div class="RadioGroup-item">
+                                                    <span class="RadioGroup-item-radio"></span>待领奖</div>
+                                                <div class="RadioGroup-item">
+                                                    <span class="RadioGroup-item-radio"></span>已结束</div>
+                                            </div>
+                                        </div>
+                                        <div class="KittiesToolbar-sort">
+                                            <span class="KittiesToolbar-sort-label">排序</span>
+                                            <div class="SelectGroup">
+                                                <div class="SelectGroup-item">
+                                                    <select class="Select" placeholder="">
+                                                        <option value="current_price">價格</option>
+                                                        <option value="age">年龄</option>
+                                                        <option value="generation">代數</option>
+                                                        <option value="cooldown">休息時間</option>
+                                                        <option value="purr_count">贊</option>
+                                                    </select>
+                                                </div>
+                                                <div class="SelectGroup-item">
+                                                    <select class="Select" placeholder="">
+                                                        <option value="asc">由低到高</option>
+                                                        <option value="desc">由高到低</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="KittiesGallery">
+                        <div class="Container Container--lg">
+                            <div class="KittiesGrid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="KittiesGalleryPagination">
+                        <div class="Pagination">
+                            <div class="Pagination-pages">
+                                <button class="Pagination-page Pagination-page--active">1</button>
+                                <button class="Pagination-page">2</button>
+                                <button class="Pagination-page">3</button>
+                                <button class="Pagination-page">4</button>
+                                <button class="Pagination-page">5</button>
+                                <button class="Pagination-page">6</button>
+                                <button class="Pagination-page">7</button>
+                                <button class="Pagination-page">8</button>
+                                <button class="Pagination-page">9</button>
+                                <button class="Pagination-page">10</button>
+                            </div>
+                            <div>
+                                <button class="Pagination-button Pagination-button--disabled">上一頁</button>
+                                <button class="Pagination-button">下一頁</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Template start -->
+    <div id="itemTemplate" style="display:none">
+        <div class="KittiesGrid-item">
+            <a aria-current="false" href="javascript:void(0);" onclick="detail(this)" class="ReportPage-button">
+                <div class="KittyCard-wrapper">
+                    <div class="KittyCard KittyCard--bg-coralsunrise KittyCard--responsive KittyCard--shadow-coralsunrise">
+                        <img class="KittyCard-image" src="images/goods1.jpg" alt="图片加载失败">
+                        <div class="KittyCard-status">
+                            <div class="KittyStatus">
+                                <div class="KittyStatus-item">
+                                    <span class="KittyStatus-itemIcon">
+                                        <i class="Icon Icon--tag"></i>
+                                    </span>
+                                    <span class="KittyStatus-itemText">
+                                        <span class="KittyStatus-label">参与费<small>Ξ</small></span>
+                                        <span class="KittyStatus-note">1000</span>
+                                        <span class="KittyStatus-label">Wei</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="KittyCard-details">
+                        <span class="KittyCard-details-item KittyCard-details-item--highlight KittyCard-details-item--isChinese">合约地址：0x19d95c5e3547430ad68ca64870c8691524e276f9</span>
+                        <span class="KittyCard-details-item KittyCard-details-item--highlight KittyCard-details-item--isChinese">商品描述：一瓶可乐</span>
+                        <span class="KittyCard-details-item KittyCard-details-item--highlight KittyCard-details-item--isChinese">合约状态：进行中</span>
+                        <span class="KittyCard-details-item KittyCard-details-item--highlight KittyCard-details-item--isChinese">人数：1/10</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Template end -->
+    <!-- Modal start -->
+    <div class="Modal" style="display:none">
+        <div class="Modal-content">
+            <div class="ReportPage-modal">
+                <button class="ReportPage-modal-close" onclick="closeModal()"></button>
+                <div class="Container">
+                    <div class="Section">
+                        <h2>智能合约详情</h2>
+                    </div>
+                    <form>
+                        <div class="Section">
+                            <p>
+                                <label for="addon1">合约地址:</label>
+                                <input type="text" id="addon1" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon2">商家地址:</label>
+                                <input type="text" id="addon2" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon3">合约状态:</label>
+                                <input type="text" id="addon3" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon4">参与费用:</label>
+                                <input type="text" id="addon4" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon5">参加人数:</label>
+                                <input type="text" id="addon5" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon6">最大人数:</label>
+                                <input type="text" id="addon6" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon7">商家定金:</label>
+                                <input type="text" id="addon7" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon8">商品描述:</label>
+                                <input type="text" id="addon8" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon9">赢家地址:</label>
+                                <input type="text" id="addon9" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon10">赢家联系方式:</label>
+                                <input type="text" id="addon10" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            </br>
+                            <p>
+                                <label for="addon11">输入您的秘密数字:</label>
+                                <input type="text" id="addon11" class="ReportPage-modal-input" value="">
+                            </p>
+                            </br>
+                            <p>
+                                <label for="addon12">此人的秘密数字hash值</label>
+                                <input type="text" id="addon12" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon13">此人的秘密数字</label>
+                                <input type="text" id="addon13" class="ReportPage-modal-input" value="" readonly="true">
+                            </p>
+                        </div>
+                        <!-- <div>
+                            <input type="text" name="user_address" readonly="" style="display: none;">
+                            <input type="text" name="user_nickname" readonly="" value="foolsrushinn" style="display: none;">
+                        </div>
+                        <input type="text" name="__mailzen__" value="" style="display: none;"> -->
+                        <div class="Section">
+                            <p>
+                                <input type="button" class="Button Button--large" value="激活" onclick="activate()">
+                                <input type="button" class="Button Button--large" value="参加" onclick="join()">
+                                <input type="button" class="Button Button--large" value="展示自己的秘密数字" onclick="revealNum()">
+                                <input type="button" class="Button Button--large" value="产生赢家（测试用后删除）" onclick="generateWinner()">
+                                <input type="button" class="Button Button--large" value="我是赢家我要上传手机号" onclick="setPhone()">
+                                <input type="button" class="Button Button--large" value="我是赢家我收到货了" onclick="receipt()">
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPBB7JJ" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/activity.js"></script>
+
+</body>
+
+</html>
