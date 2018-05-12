@@ -64,7 +64,8 @@ App = {
         console.log(latestCFund);
         var cFundInstance = await App.contracts.CFund.at(latestCFund);
         var cFundInfo = await cFundInstance.info.call();
-        itemTemplate.find('.KittyCard-image').attr("src", `images/goods${i % 3 + 1}.jpg`);
+        itemTemplate.find('.KittyCard-image').attr("src", `images/goods${i % 4 + 1}.jpg`);
+        //itemTemplate.find('.KittyCard-image').attr("src", `images/mac.jpg`);
         itemTemplate.find('.KittyCard-details span:nth-child(1)').text("合约地址：" + latestCFund);
         itemTemplate.find('.KittyCard-details span:nth-child(2)').html("商品描述：" + cFundInfo[4]);
         itemTemplate.find('.KittyCard-details span:nth-child(3)').text("合约状态：" + App.stateMap[cFundInfo[3]]);

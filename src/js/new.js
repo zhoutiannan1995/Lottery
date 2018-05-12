@@ -42,66 +42,24 @@ App = {
             try {
                 if (err) { console.log(err); }
                 var account = accounts[0];
-
                 var manageInstance = await App.contracts.Management.deployed();
                 console.log($('#address').val(), $('#fee').val(), $('#maxNum').val(), $('#deposit').val(), $('#description').val());
                 await manageInstance.addOneCFund($('#address').val(), $('#fee').val(), $('#maxNum').val(), $('#deposit').val(), $('#description').val(), { from: account });
                 var newCFundAddress = await manageInstance.latestCFund.call();
                 console.log("新创建的CFund地址为：", newCFundAddress);
                 alert("新创建的CFund地址为：" + newCFundAddress);
-                makeCorsRequest();
+                //makeCorsRequest();
+                $("#uploadForm").find('.Section').append('<input type="text" name="text" id="addr"/>');
+                $("#addr").attr("value", newCFundAddress);
+                $("#addr").remove();
+                doUpload();
             } catch (err) {
                 console.log(err);
             }
         });
     }
 };
-// Create the XHR object.
-function createCORSRequest(method, url) {
-    var xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
-        // XHR for Chrome/Firefox/Opera/Safari.
-        xhr.open(method, url, true);
-    } else if (typeof XDomainRequest != "undefined") {
-        // XDomainRequest for IE.
-        xhr = new XDomainRequest();
-        xhr.open(method, url);
-    } else {
-        // CORS not supported.
-        xhr = null;
-    }
-    return xhr;
-}
-// Make the actual CORS request.
-function makeCorsRequest() {
-    // This is a sample server that supports CORS.
-    var url = 'http://localhost:9001/uploadImg';
 
-    var xhr = createCORSRequest('POST', url);
-    if (!xhr) {
-        alert('CORS not supported');
-        return;
-    }
-    xhr.setRequestHeader("Content-Type", "image/jpeg");
-    // Response handlers.
-    xhr.onload = function () {
-        var text = xhr.responseText;
-        var title = text;
-        alert('Response from CORS request to ' + url + ': ' + title);
-    };
-
-    xhr.onerror = function () {
-        alert('Woops, there was an error making the request.');
-    };
-    var pic = document.querySelector('#pic').files;
-    console.log(document.querySelector('#pic'));
-    console.log(pic[0]);
-    if (!pic) {
-        alert('必须上传图片！');
-        return;
-    }
-    xhr.send(pic[0]);
-}
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -109,13 +67,35 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#blah')
                 .attr('src', e.target.result);
+            console.log(e.target.result);
+            console.log("imageHash:",web3.sha3(e.target.result));
         };
 
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function doUpload() {
+    var formData = new FormData($("#uploadForm")[0]);  
+    console.log(formData);
+    $.ajax({  
+        url: 'http://localhost:9001/uploadImg',
+        type: 'POST',  
+        data: formData,  
+        cache: false,  
+        contentType: false,  
+        processData: false,  
+        success: function (returndata) {  
+            console.log(returndata);  
+        },
+        error: function (returndata) {  
+            console.log(returndata);  
+        }
+    });  
+}
+
 $(function () {
-    $(window).load(function () {
+    $(window).on('load', function () {
         App.init();
     });
 });

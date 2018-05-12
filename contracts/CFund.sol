@@ -14,7 +14,7 @@ contract CFund {
         uint maxNum;
         uint joinedNum;
         uint8 contractState;
-        string description; //0-未激活,1-正在进行,2-待揭示,3-待领奖,9-已结束
+        string description; //0-未激活,1-正在进行,2-待揭示,3-待领奖,8-已实效,9-已结束
         address sponsor;
         uint deposit;
         address winner;
@@ -23,6 +23,10 @@ contract CFund {
         string winnerPhone;
         uint revealNum;
         uint randomNum;
+        //bytes32 imageHash;
+        //uint startDate;
+        //uint endDate;
+        //uint revealEndDate;
         mapping (address => JoinersNum) joiners;
         address[] joinerArr;
     }
@@ -50,6 +54,8 @@ contract CFund {
         info.deposit = _deposit;
         info.description = _description;
         info.lastCFund = _lastCFund;
+        //info.startDate = _startDate;
+        //info.endDate = _endDate;
         info.contractState = 0;
     }
 
@@ -88,7 +94,7 @@ contract CFund {
         info.joiners[msg.sender].isReveal = true;
         info.joiners[msg.sender].secretNum = uint(_secretNum);
         info.revealNum++;
-        info.randomNum = info.randomNum | uint(_secretNum);
+        info.randomNum = info.randomNum ^ uint(_secretNum);
         msg.sender.transfer(info.deposit);
         if (info.revealNum == info.joinedNum) {
             generateWinner();
@@ -108,6 +114,14 @@ contract CFund {
     function receipt() public onlyWinner {
         info.contractState = 9;
         info.sponsor.transfer(info.deposit);
+    }
+    //规定日期内人数不满，商家可终止合约
+    function cancel() public onlySponsor {
+        info.contractState = 8;
+    }
+    //规定日期内揭示秘密数字人数不满，可作废合约
+    function repeal() public {
+        info.contractState = 8;
     }
     //设置下一场
     function setNext(address _nextCFund) external onlyOwner {

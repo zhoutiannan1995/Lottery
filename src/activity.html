@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="Header-group">
-                        <a class="Header-navigation-item" aria-current="false" href="my.html">我的</a>
+                        <a class="Header-navigation-item" aria-current="false" href="my.html">查询</a>
                         <a class="Header-navigation-item" aria-current="false" href="activity.html">活动</a>
                         <a class="Header-navigation-item" aria-current="false" href="new.html">创建新活动（限管理员）</a>
                     </div>
@@ -82,7 +82,11 @@
                                                 <div class="RadioGroup-item">
                                                     <span class="RadioGroup-item-radio"></span>待领奖</div>
                                                 <div class="RadioGroup-item">
+                                                    <span class="RadioGroup-item-radio"></span>已失效</div>
+                                                <div class="RadioGroup-item">
                                                     <span class="RadioGroup-item-radio"></span>已结束</div>
+                                                <div class="RadioGroup-item">
+                                                    <span class="RadioGroup-item-radio"></span>只显示与我相关</div>
                                             </div>
                                         </div>
                                         <div class="KittiesToolbar-sort">
@@ -90,17 +94,14 @@
                                             <div class="SelectGroup">
                                                 <div class="SelectGroup-item">
                                                     <select class="Select" placeholder="">
-                                                        <option value="current_price">價格</option>
-                                                        <option value="age">年龄</option>
-                                                        <option value="generation">代數</option>
-                                                        <option value="cooldown">休息時間</option>
-                                                        <option value="purr_count">贊</option>
+                                                        <option value="current_price">创建时间</option>
+                                                        <option value="age">参与费</option>
                                                     </select>
                                                 </div>
                                                 <div class="SelectGroup-item">
                                                     <select class="Select" placeholder="">
-                                                        <option value="asc">由低到高</option>
-                                                        <option value="desc">由高到低</option>
+                                                        <option value="asc">降序</option>
+                                                        <option value="desc">升序</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -116,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="KittiesGalleryPagination">
+                    <!-- <div class="KittiesGalleryPagination">
                         <div class="Pagination">
                             <div class="Pagination-pages">
                                 <button class="Pagination-page Pagination-page--active">1</button>
@@ -135,7 +136,7 @@
                                 <button class="Pagination-button">下一頁</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </main>
         </div>
@@ -218,6 +219,14 @@
                                 <input type="text" id="addon8" class="ReportPage-modal-input" value="" readonly="true">
                             </p>
                             <p>
+                                <label for="addon20">开始日期:</label>
+                                <input type="text" id="addon20" class="ReportPage-modal-input" value="2018-04-01" readonly="true">
+                            </p>
+                            <p>
+                                <label for="addon21">结束日期:</label>
+                                <input type="text" id="addon21" class="ReportPage-modal-input" value="2018-04-30" readonly="true">
+                            </p>
+                            <p>
                                 <label for="addon9">赢家地址:</label>
                                 <input type="text" id="addon9" class="ReportPage-modal-input" value="" readonly="true">
                             </p>
@@ -227,10 +236,10 @@
                             </p>
                             </br>
                             <p>
-                                <label for="addon11">输入您的秘密数字:</label>
+                                <label for="addon11">请输入您的秘密数字:</label>
                                 <input type="text" id="addon11" class="ReportPage-modal-input" value="">
                             </p>
-                            </br>
+                            <!-- </br>
                             <p>
                                 <label for="addon12">此人的秘密数字hash值</label>
                                 <input type="text" id="addon12" class="ReportPage-modal-input" value="" readonly="true">
@@ -238,7 +247,7 @@
                             <p>
                                 <label for="addon13">此人的秘密数字</label>
                                 <input type="text" id="addon13" class="ReportPage-modal-input" value="" readonly="true">
-                            </p>
+                            </p> -->
                         </div>
                         <!-- <div>
                             <input type="text" name="user_address" readonly="" style="display: none;">
@@ -249,10 +258,11 @@
                             <p>
                                 <input type="button" class="Button Button--large" value="激活" onclick="activate()">
                                 <input type="button" class="Button Button--large" value="参加" onclick="join()">
-                                <input type="button" class="Button Button--large" value="展示自己的秘密数字" onclick="revealNum()">
-                                <input type="button" class="Button Button--large" value="产生赢家（测试用后删除）" onclick="generateWinner()">
-                                <input type="button" class="Button Button--large" value="我是赢家我要上传手机号" onclick="setPhone()">
-                                <input type="button" class="Button Button--large" value="我是赢家我收到货了" onclick="receipt()">
+                                <input type="button" class="Button Button--large" value="揭示秘密数字" onclick="revealNum()">
+                                <!-- <input type="button" class="Button Button--large" value="产生赢家（测试用后删除）" onclick="generateWinner()"> -->
+                                <input type="button" class="Button Button--large" value="申请作废" onclick="generateWinner()">
+                                <input type="button" class="Button Button--large" value="赢家上传联系方式" onclick="setPhone()">
+                                <input type="button" class="Button Button--large" value="赢家签收奖品" onclick="receipt()">
                             </p>
                         </div>
                     </form>

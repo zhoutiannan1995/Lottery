@@ -2138,6 +2138,30 @@
 .FaqPage{
   padding-bottom:6.4rem
 }
+.bar7 form {
+	height:42px;
+}
+.bar7 input {
+	width:250px;
+	border-radius:42px;
+	border:2px solid #324B4E;
+	background:#F9F0DA;
+	transition:.3s linear;
+	float:right;
+}
+.bar7 input:focus {
+	width:300px;
+}
+.bar7 button {
+	background:none;
+	top:-2px;
+	right:20px;
+}
+.bar7 button:before {
+	content:"Search";
+	font-family:FontAwesome;
+	color:#324b4e;
+}
 .KittiesToolbar-tabs{
   position:relative;
   margin-bottom:-.2rem
@@ -4336,7 +4360,7 @@
   color:#241f1f
 }
 .KittyCard-details-item--highlight:after{
-  color:#241f1f
+  color:#f0e3e3
 }
 .KittyCard-details-item--isChinese{
   color:#b61fa2a8

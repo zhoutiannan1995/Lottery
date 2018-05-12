@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="Header-group">
-                <a class="Header-navigation-item" aria-current="false" href="my.html">我的</a>
+                <a class="Header-navigation-item" aria-current="false" href="my.html">查询</a>
                 <a class="Header-navigation-item" aria-current="false" href="activity.html">活动</a>
                 <a class="Header-navigation-item" aria-current="false" href="new.html">创建新活动（限管理员）</a>
             </div>
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <div class="jumbotron" style="height:600px; background-image:url('./images/w1.jpg')">
+    <div class="jumbotron" style="height:0px; background-image:url('./images/w1.jpg')">
         <div class="container">
         </div>
     </div>
@@ -65,12 +65,14 @@
                 <h2 class="Hero-h2">新增众筹营销活动</h2>
                 <p class="Hero-description">在此编辑活动信息</p>
                 <div class="SettingsForm">
-                    <form>
+                    <form id= "uploadForm">
                         <div class="Section">
-                            <!-- <img class="ProfileHeader-image ProfileHeader-image--clickable" src="/profile/profile-9.png"> -->
-                            <input type="file" id="pic" onchange="readURL(this);" />
+                                <!-- <img class="ProfileHeader-image ProfileHeader-image--clickable" src="/profile/profile-9.png"> -->
+                                <input type="file" name="file" id="pic" onchange="readURL(this);" />
                             <img id="blah" src="http://placehold.it/180" alt="your image" />
                         </div>
+                    </form>
+                    <form>
                         <div class="Section">
                             <p class="InputButtons-group">
                                 <label for="address">发起人地址</label>
@@ -83,7 +85,7 @@
                                     autocapitalize="off" autocorrect="off">
                             </p>
                             <p class="InputButtons-group">
-                                <label for="fee">参加费</label>
+                                <label for="fee">参与费</label>
                                 <input type="text" id="fee" name="fee" class="InputButtons InputButtons-input" placeholder="999" maxlength="40" autocomplete="off"
                                     autocorrect="off" onkeyup="if(isNaN(value))execCommand('undo')">
                             </p>
@@ -97,6 +99,16 @@
                                 <input type="text" id="maxNum" name="maxNum" class="InputButtons InputButtons-input" placeholder="16" maxlength="40" autocomplete="off"
                                     autocorrect="off" onkeyup="if(isNaN(value))execCommand('undo')">
                             </p>
+                            <p class="InputButtons-group">
+                                <label for="startDate">开始日期</label>
+                                <input type="text" id="startDate" name="startDate" class="InputButtons InputButtons-input" placeholder="16" maxlength="40" autocomplete="off"
+                                    autocorrect="off">
+                            </p>
+                            <p class="InputButtons-group">
+                                <label for="endDate">结束日期</label>
+                                <input type="text" id="endDate" name="endDate" class="InputButtons InputButtons-input" placeholder="16" maxlength="40" autocomplete="off"
+                                    autocorrect="off">
+                            </p>
                         </div>
                         <div class="Section">
                             <div class="Note Note--margins Note--warning">确保保存您的MetaMask登录信息和帐户恢复详细信息！如果您失去它，我们不能帮助您恢复访问。</div>
@@ -104,7 +116,7 @@
                         <div class="Section">
                             <button class="Button Button--love Button--larger btn-create">提交</button>
                             <p class="u-margin-top-md">
-                                <button class="Button">帮帮我！我在登录时遇到问题。</button>
+                                <button class="Button">帮帮我！我在使用时遇到问题。</button>
                             </p>
                         </div>
                     </form>
@@ -113,7 +125,7 @@
         </div>
     </main>
 
-    <script src="js/jquery.min.js"></script>
+    <script src="js/jqueryA.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/web3.min.js"></script>
